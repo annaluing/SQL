@@ -1,0 +1,23 @@
+--Create a clothing store database for an upcoming small business.
+CREATE TABLE store (id INTEGER PRIMARY KEY, clothing TEXT, quantity INTEGER, aisle INTEGER, price INTEGER);
+INSERT INTO store VALUES (1, "tshirts", 10, 1, 3.99);
+INSERT INTO store VALUES (2, "pants", 7, 2, 4.99);
+INSERT INTO store VALUES (3, "hoodies", 8, 3, 7.99);
+INSERT INTO store VALUES (4, "skirts", 6, 2, 7.99);
+INSERT INTO store VALUES (5, "longsleeves", 8, 1, 4.99);
+
+
+--display the database ordered by price.
+SELECT * FROM store ORDER BY price;
+
+
+--display the database of items priced above 4.99 ordered by price. 
+SELECT * FROM store WHERE price > 4.99 ORDER BY quantity;
+
+
+--What is the total quantity of products in the entire store?
+SELECT SUM(quantity) FROM store;
+
+
+--What is the average price of items in the entire store?
+SELECT AVG(price) FROM store;
