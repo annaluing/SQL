@@ -1,0 +1,37 @@
+/* Create table about the people and what they do here */
+
+--Create table of famous people and their age.
+CREATE TABLE famous_people (person_id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);
+
+INSERT INTO famous_people (name, age) VALUES ("Kim Kardashian", "42");
+INSERT INTO famous_people (name, age) VALUES ("Barack Obama", "61");
+INSERT INTO famous_people (name, age) VALUES ("Michelle Obama", "59");
+INSERT INTO famous_people (name, age) VALUES ("Kirill Kaprizov", "25");
+INSERT INTO famous_people (name, age) VALUES ("Tom Brady", "45");
+INSERT INTO famous_people (name, age) VALUES ("Babe Ruth", "53");
+INSERT INTO famous_people (name, age) VALUES ("Chadwick Boseman", "43");
+INSERT INTO famous_people (name, age) VALUES ("Charlotte Chaze", "31");
+
+--Now, Create a table that includes the famous people from the previous table's hobbies.
+CREATE TABLE hobbies (id INTEGER PRIMARY KEY AUTOINCREMENT, person_id INTEGER, name TEXT);
+
+INSERT INTO hobbies (person_id, name) VALUES (1, "model");
+INSERT INTO hobbies (person_id, name) VALUES (2, "former president");
+INSERT INTO hobbies (person_id, name) VALUES (3, "former first lady");
+INSERT INTO hobbies (person_id, name) VALUES (4, "NHL player");
+INSERT INTO hobbies (person_id, name) VALUES (5, "NFL player");
+INSERT INTO hobbies (person_id, name) VALUES (6, "MLB player");
+INSERT INTO hobbies (person_id, name) VALUES (7, "actor");
+SELECT * FROM hobbies;
+SELECT * FROM famous_people;
+
+INSERT INTO hobbies (person_id, name) VALUES (8, "coding");
+
+--Cross join example
+SELECT * FROM famous_people, hobbies;
+
+--Match the famous people with their hobbies using JOIN.
+SELECT f.name, h.name
+FROM famous_people f
+JOIN hobbies h
+ON f.person_id = h.id;
